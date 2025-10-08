@@ -1,6 +1,17 @@
-﻿namespace Grocery.Core.Interfaces.Services {
+﻿using Grocery.Core.Models;
+using System.Collections.ObjectModel;
+
+namespace Grocery.Core.Interfaces.Services {
 
     public interface ICategoryService {
-        string GetCategoryName(string categoryName);
+        public void Create(Category category);
+
+        public Category Get(int id);
+
+        public ReadOnlyCollection<Category> GetAll();
+
+        public Category Update(Category category);
+
+        public void Delete(int id);
     }
 }

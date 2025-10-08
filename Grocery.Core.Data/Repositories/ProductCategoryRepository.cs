@@ -27,9 +27,9 @@ namespace Grocery.Core.Data.Repositories {
             productCategories.Add(productCategory);
         }
 
-        public ProductCategory? Get(int productId, int categoryId) {
-            return productCategories.FirstOrDefault(pc => pc.ProductId == productId && pc.CategoryId == categoryId);
-        }
+        public ProductCategory? Get(int productId, int categoryId) =>
+            productCategories.FirstOrDefault(pc => pc.ProductId == productId && pc.CategoryId == categoryId);
+
 
         public List<ProductCategory> GetAll() => new List<ProductCategory>(productCategories);
 
@@ -38,17 +38,17 @@ namespace Grocery.Core.Data.Repositories {
                 throw new ArgumentNullException(nameof(productCategory), "ProductCategory cannot be null");
 
             ProductCategory? existingProductCategory = Get(productCategory.ProductId, productCategory.CategoryId);
-            if (existingProductCategory != null) {
-                existingProductCategory.ProductId = productCategory.ProductId;
-                existingProductCategory.CategoryId = productCategory.CategoryId;
-            }
+            if (existingProductCategory == null)
+                return;
+
+            existingProductCategory.ProductId = productCategory.ProductId;
+            existingProductCategory.CategoryId = productCategory.CategoryId;
         }
 
         public void Delete(int productId, int categoryId) {
             ProductCategory? productCategory = Get(productId, categoryId);
-            if (productCategory != null) {
+            if (productCategory != null)
                 productCategories.Remove(productCategory);
-            }
         }
     }
 }

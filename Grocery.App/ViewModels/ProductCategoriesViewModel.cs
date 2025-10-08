@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Grocery.App.ViewModels {
-    internal class ProductCategoriesViewModel {
+    public class ProductCategoriesViewModel {
     }
 }
