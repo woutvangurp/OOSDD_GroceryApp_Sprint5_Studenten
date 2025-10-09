@@ -28,6 +28,7 @@
                                 <Label Text="{Binding Name}" FontAttributes="Bold" />
                                 <Label Text="{Binding Price, StringFormat='Prijs: €{0:F2}'}" />
                                 <Label Text="{Binding Stock, StringFormat='Voorraad: {0}'}" />
+                                <Label Text="{Binding ShelfLife, StringFormat='THT datum: {0}'}" />
                             </StackLayout>
                         </Frame>
                     </DataTemplate>
