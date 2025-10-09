@@ -12,5 +12,6 @@ namespace Grocery.Core.Interfaces.Services {
         public void Update(ProductCategory productCategory);
 
         public void Delete(int productId, int categoryId);
+        public List<Product> GetProductsByCategoryId(int categoryId);
     }
 }
